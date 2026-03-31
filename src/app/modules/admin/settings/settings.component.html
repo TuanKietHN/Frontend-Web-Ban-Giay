@@ -1,0 +1,80 @@
+<!-- Admin Navbar -->
+<nav class="grey darken-3">
+  <div class="nav-wrapper px-4">
+    <a routerLink="/admin" class="brand-logo">Admin Dashboard</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Sản Phẩm</a></li>
+      <li><a href="#">Đơn Hàng</a></li>
+      <li><a href="#">Khách Hàng</a></li>
+      <li><a (click)="logout()">Đăng Xuất</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid mt-4 px-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2">
+      <div class="collection">
+        <a routerLink="/admin" class="collection-item">Tổng Quan</a>
+        <a routerLink="/admin/products" class="collection-item">Quản Lý Sản Phẩm</a>
+        <a routerLink="/admin/categories" class="collection-item">Quản Lý Danh Mục</a>
+        <a routerLink="/admin/orders" class="collection-item">Quản Lý Đơn Hàng</a>
+        <a routerLink="/admin/settings" class="collection-item active">Cài Đặt</a>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-md-10">
+      <h4>Cài Đặt Hệ Thống</h4>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Thông tin cửa hàng</span>
+              <form>
+                <div class="input-field mt-4">
+                  <input id="store_name" type="text" value="WebBanGiayTLU">
+                  <label for="store_name" class="active">Tên cửa hàng</label>
+                </div>
+                <div class="input-field">
+                  <input id="store_phone" type="text" value="0123456789">
+                  <label for="store_phone" class="active">Số điện thoại liên hệ</label>
+                </div>
+                <div class="input-field">
+                  <textarea id="store_address" class="materialize-textarea">175 Tây Sơn, Đống Đa, Hà Nội</textarea>
+                  <label for="store_address" class="active">Địa chỉ</label>
+                </div>
+                <button class="btn waves-effect waves-light blue">Lưu Thay Đổi</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Đổi mật khẩu Admin</span>
+              <form>
+                <div class="input-field mt-4">
+                  <input id="old_pwd" type="password">
+                  <label for="old_pwd">Mật khẩu cũ</label>
+                </div>
+                <div class="input-field">
+                  <input id="new_pwd" type="password">
+                  <label for="new_pwd">Mật khẩu mới</label>
+                </div>
+                <div class="input-field">
+                  <input id="confirm_pwd" type="password">
+                  <label for="confirm_pwd">Xác nhận mật khẩu mới</label>
+                </div>
+                <button class="btn waves-effect waves-light orange">Cập Nhật Mật Khẩu</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

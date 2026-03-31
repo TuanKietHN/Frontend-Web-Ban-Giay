@@ -1,0 +1,97 @@
+<nav class="nav-extended blue darken-3">
+  <div class="nav-wrapper container">
+    <a routerLink="/" class="brand-logo">WebBanGiayTLU</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a routerLink="/">Trang Chủ</a></li>
+      <li><a routerLink="/cart">Giỏ Hàng</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h4 class="mb-4">Thanh Toán</h4>
+  <div class="row">
+    <!-- Billing Details -->
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Thông tin giao hàng</span>
+          <form (ngSubmit)="onCheckout()">
+            <div class="input-field mb-3">
+              <input id="fullName" type="text" [(ngModel)]="checkoutForm.fullName" name="fullName" required>
+              <label for="fullName">Họ và tên</label>
+            </div>
+            <div class="input-field mb-3">
+              <input id="phone" type="text" [(ngModel)]="checkoutForm.phone" name="phone" required>
+              <label for="phone">Số điện thoại</label>
+            </div>
+            <div class="input-field mb-3">
+              <textarea id="address" class="materialize-textarea" [(ngModel)]="checkoutForm.address" name="address" required></textarea>
+              <label for="address">Địa chỉ giao hàng</label>
+            </div>
+            
+            <div class="mt-4">
+              <span class="card-title">Phương thức thanh toán</span>
+              <p>
+                <label>
+                  <input name="paymentMethod" type="radio" value="COD" [(ngModel)]="checkoutForm.paymentMethod" />
+                  <span>Thanh toán khi nhận hàng (COD)</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input name="paymentMethod" type="radio" value="STRIPE" [(ngModel)]="checkoutForm.paymentMethod" />
+                  <span>Thẻ Tín Dụng / Ghi Nợ (Stripe)</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input name="paymentMethod" type="radio" value="SEPAY" [(ngModel)]="checkoutForm.paymentMethod" />
+                  <span>Chuyển khoản ngân hàng (SePay)</span>
+                </label>
+              </p>
+            </div>
+            
+            <div class="mt-4 center-align">
+              <button class="btn waves-effect waves-light orange btn-large w-100" type="submit" [disabled]="!cartItems || cartItems.length === 0">
+                Xác Nhận Đặt Hàng
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Order Summary -->
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Đơn hàng của bạn</span>
+          <ul class="collection">
+            <li class="collection-item" *ngFor="let item of cartItems">
+              <span class="title font-weight-bold">{{ item.productName }}</span>
+              <p class="mb-0">
+                {{ item.color }} - {{ item.size }} x {{ item.quantity }}
+              </p>
+              <span class="secondary-content red-text">{{ item.price * item.quantity | number }} đ</span>
+            </li>
+          </ul>
+          <hr>
+          <div class="d-flex justify-content-between mt-3 mb-2">
+            <span>Tạm tính:</span>
+            <strong>{{ totalAmount | number }} đ</strong>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Phí vận chuyển:</span>
+            <strong>0 đ</strong>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between mt-3">
+            <span class="font-weight-bold" style="font-size: 1.2rem;">Tổng cộng:</span>
+            <strong class="red-text" style="font-size: 1.5rem;">{{ totalAmount | number }} đ</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<!-- Admin Navbar -->
+<nav class="grey darken-3">
+  <div class="nav-wrapper px-4">
+    <a routerLink="/admin" class="brand-logo">Admin Dashboard</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Sản Phẩm</a></li>
+      <li><a href="#">Đơn Hàng</a></li>
+      <li><a href="#">Khách Hàng</a></li>
+      <li><a (click)="logout()">Đăng Xuất</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid mt-4 px-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2">
+      <div class="collection">
+        <a routerLink="/admin" class="collection-item">Tổng Quan</a>
+        <a routerLink="/admin/products" class="collection-item">Quản Lý Sản Phẩm</a>
+        <a routerLink="/admin/categories" class="collection-item active">Quản Lý Danh Mục</a>
+        <a routerLink="/admin/orders" class="collection-item">Quản Lý Đơn Hàng</a>
+        <a routerLink="/admin/settings" class="collection-item">Cài Đặt</a>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-md-10">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Quản Lý Danh Mục</h4>
+        <button class="btn waves-effect waves-light blue"><i class="material-icons left">add</i>Thêm Danh Mục</button>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <table class="striped highlight responsive-table">
+            <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Tên Danh Mục</th>
+                  <th>Đường Dẫn (Slug)</th>
+                  <th>Hành Động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Sneaker</td>
+                <td>sneaker</td>
+                <td>
+                  <a class="waves-effect waves-light btn-small blue mr-2"><i class="material-icons">edit</i></a>
+                  <a class="waves-effect waves-light btn-small red"><i class="material-icons">delete</i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Thể Thao</td>
+                <td>the-thao</td>
+                <td>
+                  <a class="waves-effect waves-light btn-small blue mr-2"><i class="material-icons">edit</i></a>
+                  <a class="waves-effect waves-light btn-small red"><i class="material-icons">delete</i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<nav class="nav-extended blue darken-3">
+  <div class="nav-wrapper container">
+    <a routerLink="/" class="brand-logo">WebBanGiayTLU</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a routerLink="/">Trang Chủ</a></li>
+      <li><a routerLink="/cart">Giỏ Hàng</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5" *ngIf="product">
+  <div class="row">
+    <!-- Image Gallery -->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-image">
+          <img [src]="selectedImage" alt="Main Product Image" style="object-fit: cover; height: 400px; width: 100%;">
+        </div>
+      </div>
+      <div class="row mt-2" *ngIf="product.images && product.images.length > 0">
+        <div class="col-3" *ngFor="let img of product.images">
+          <img [src]="img.imageUrl" class="responsive-img hoverable" style="cursor:pointer;" (click)="selectedImage = img.imageUrl">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product Info -->
+    <div class="col-md-6">
+      <h4>{{ product.name }}</h4>
+      <h5 class="red-text font-weight-bold">{{ product.basePrice | number }} đ</h5>
+      
+      <p class="mt-4">{{ product.description }}</p>
+      
+      <div class="mt-4" *ngIf="product.variants && product.variants.length > 0">
+        <h6>Chọn loại:</h6>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Size - Màu</label>
+            <select class="browser-default d-block" [(ngModel)]="selectedVariantId">
+              <option value="" disabled selected>Chọn một biến thể</option>
+              <option *ngFor="let v of product.variants" [value]="v.id">
+                Size: {{ v.size }} - Màu: {{ v.color }} - Giá: {{ v.price | number }} đ (Còn: {{ v.stockQuantity }})
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <button class="btn waves-effect waves-light orange btn-large" (click)="addToCart()"><i class="material-icons left">add_shopping_cart</i> Thêm Vào Giỏ Hàng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 text-center" *ngIf="!product">
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</div>

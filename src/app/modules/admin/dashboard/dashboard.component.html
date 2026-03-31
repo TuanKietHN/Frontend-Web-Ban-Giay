@@ -1,0 +1,102 @@
+<!-- Admin Navbar -->
+<nav class="grey darken-3">
+  <div class="nav-wrapper px-4">
+    <a routerLink="/admin" class="brand-logo">Admin Dashboard</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#">Sản Phẩm</a></li>
+      <li><a href="#">Đơn Hàng</a></li>
+      <li><a href="#">Khách Hàng</a></li>
+      <li><a (click)="logout()">Đăng Xuất</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid mt-4 px-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2">
+      <div class="collection">
+        <a routerLink="/admin" class="collection-item active">Tổng Quan</a>
+        <a routerLink="/admin/products" class="collection-item">Quản Lý Sản Phẩm</a>
+        <a routerLink="/admin/categories" class="collection-item">Quản Lý Danh Mục</a>
+        <a routerLink="/admin/orders" class="collection-item">Quản Lý Đơn Hàng</a>
+        <a routerLink="/admin/settings" class="collection-item">Cài Đặt</a>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-md-10">
+      <div class="row">
+        <!-- Stat Card 1 -->
+        <div class="col-md-3">
+          <div class="card blue white-text p-3">
+            <h5>Doanh Thu</h5>
+            <h3>15.5M đ</h3>
+          </div>
+        </div>
+        <!-- Stat Card 2 -->
+        <div class="col-md-3">
+          <div class="card green white-text p-3">
+            <h5>Đơn Hàng Mới</h5>
+            <h3>24</h3>
+          </div>
+        </div>
+        <!-- Stat Card 3 -->
+        <div class="col-md-3">
+          <div class="card orange white-text p-3">
+            <h5>Khách Hàng</h5>
+            <h3>120</h3>
+          </div>
+        </div>
+        <!-- Stat Card 4 -->
+        <div class="col-md-3">
+          <div class="card red white-text p-3">
+            <h5>Sản Phẩm Hết Hàng</h5>
+            <h3>3</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Orders Table -->
+      <div class="card mt-4">
+        <div class="card-content">
+          <span class="card-title">Đơn Hàng Gần Đây</span>
+          <table class="striped highlight responsive-table">
+            <thead>
+              <tr>
+                  <th>Mã ĐH</th>
+                  <th>Khách Hàng</th>
+                  <th>Tổng Tiền</th>
+                  <th>Trạng Thái</th>
+                  <th>Hành Động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#ORD-001</td>
+                <td>Nguyễn Văn A</td>
+                <td>2.500.000 đ</td>
+                <td><span class="new badge green" data-badge-caption="">Hoàn Thành</span></td>
+                <td><a class="waves-effect waves-light btn-small blue"><i class="material-icons">visibility</i></a></td>
+              </tr>
+              <tr>
+                <td>#ORD-002</td>
+                <td>Trần Thị B</td>
+                <td>1.800.000 đ</td>
+                <td><span class="new badge orange" data-badge-caption="">Đang Giao</span></td>
+                <td><a class="waves-effect waves-light btn-small blue"><i class="material-icons">visibility</i></a></td>
+              </tr>
+              <tr>
+                <td>#ORD-003</td>
+                <td>Lê Văn C</td>
+                <td>4.000.000 đ</td>
+                <td><span class="new badge red" data-badge-caption="">Chờ Xử Lý</span></td>
+                <td><a class="waves-effect waves-light btn-small blue"><i class="material-icons">visibility</i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
